@@ -6,34 +6,34 @@ html {
 
 body {
   margin: 0;
-  background: #030712; /* Deepest dark slate black */
-  color: white;
+  background: #0c0a09; /* Sleek Matte Black */
+  color: #f4f4f5; /* Off-white for high contrast and modern look */
   font-family: Inter, system-ui, -apple-system, sans-serif;
 }
 
-/* Custom Selection Highlight */
+/* Custom Selection Highlight - Premium Ruby Red */
 ::selection {
-  background: rgba(34, 211, 238, 0.25);
-  color: #22d3ee;
+  background: rgba(225, 29, 72, 0.2);
+  color: #f59e0b; /* Rose 500 */
 }
 
-/* Premium Custom Scrollbar */
+/* Premium Custom Scrollbar - Matte Black & Carbon Red */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #0c0a09;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border: 2px solid #030712;
-  border-radius: 10px;
+  background: #18181b; /* Zinc 900 */
+  border: 1.5px solid #0c0a09;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #f59e0b; /* Rose 500 */
 }
 
 /* Custom classes for overlays */
@@ -44,9 +44,36 @@ body {
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #27272a; /* Zinc 800 */
   border-radius: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+  background: #f59e0b;
+}
+
+/* Pacman Chomp Animations */
+@keyframes chomp-top {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+}
+
+@keyframes chomp-bottom {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(35deg);
+  }
+}
+
+.animate-chomp-top {
+  animation: chomp-top 0.25s infinite ease-in-out;
+}
+
+.animate-chomp-bottom {
+  animation: chomp-bottom 0.25s infinite ease-in-out;
 }

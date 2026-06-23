@@ -9,7 +9,7 @@ const CountUpComponent =
     ? CountUp
     : (CountUp.default || CountUp);
 
-function Hero() {
+function Hero({ onPageChange }) {
   const stats = [
     { value: 2, suffix: "+", label: "Years of Coding" },
     { value: 10, suffix: "+", label: "Projects Completed" },
@@ -19,14 +19,14 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 px-6 py-24 md:py-32"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0c0a09] px-6 py-24 md:py-32"
     >
-      {/* Background Animated Gradient Mesh */}
+      {/* Background Animated Gradient Mesh - Red and Dark Rose Glows */}
       <div className="absolute inset-0 z-0">
         <motion.div
           animate={{
             scale: [1, 1.15, 1],
-            opacity: [0.15, 0.3, 0.15],
+            opacity: [0.1, 0.2, 0.1],
             x: [0, 50, 0],
             y: [0, -30, 0],
           }}
@@ -35,12 +35,12 @@ function Hero() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-cyan-500/20 blur-[100px] rounded-full"
+          className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-amber-600/15 blur-[100px] rounded-full"
         />
         <motion.div
           animate={{
             scale: [1, 1.25, 1],
-            opacity: [0.1, 0.25, 0.1],
+            opacity: [0.08, 0.18, 0.08],
             x: [0, -40, 0],
             y: [0, 40, 0],
           }}
@@ -50,7 +50,7 @@ function Hero() {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/15 blur-[120px] rounded-full"
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-amber-700/10 blur-[120px] rounded-full"
         />
       </div>
 
@@ -63,25 +63,25 @@ function Hero() {
           className="flex flex-col text-left space-y-6"
         >
           {/* Label with Glow */}
-          <div className="inline-flex items-center gap-2 bg-cyan-950/40 border border-cyan-500/30 px-4 py-2 rounded-full w-fit">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-cyan-400 text-xs md:text-sm font-semibold tracking-wider uppercase">
-              Full Stack Developer &amp; IoT Specialist
+          <div className="inline-flex items-center gap-2 bg-amber-950/20 border border-amber-500/20 px-4 py-2 rounded-full w-fit">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+            <span className="text-amber-400 text-xs md:text-sm font-semibold tracking-wider uppercase">
+              Full Stack Developer &amp; AI Specialist
             </span>
           </div>
 
           {/* Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-white">
             Hi, I'm{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-red-500 to-amber-600">
               Sanyam Asopa
             </span>
           </h1>
 
           {/* Typing Loop */}
-          <div className="text-xl md:text-3xl font-bold text-slate-300 min-h-[40px]">
+          <div className="text-xl md:text-3xl font-bold text-zinc-300 min-h-[40px]">
             <span>I build </span>
-            <span className="text-cyan-400 font-extrabold border-b-2 border-cyan-400 pb-1">
+            <span className="text-amber-500 font-extrabold border-b-2 border-amber-500 pb-1">
               <TypeAnimation
                 sequence={[
                   "scalable web apps",
@@ -101,10 +101,10 @@ function Hero() {
           </div>
 
           {/* Bio text */}
-          <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
+          <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-xl">
             Passionate software engineer building cross-disciplinary solutions. 
-            From MERN Stack systems and enterprise Java backends, to automated IoT smart 
-            hardware and custom AI deployments.
+            From MERN Stack systems and enterprise FastAPI backends, to automated IoT smart 
+            hardware and local AI model deployments.
           </p>
 
           {/* Action Buttons */}
@@ -113,35 +113,40 @@ function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               href="#projects"
-              className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-600 hover:to-indigo-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/20 transition-all duration-300"
+              onClick={(e) => { e.preventDefault(); onPageChange && onPageChange("projects"); }}
+              className="group flex items-center gap-2 bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-700 hover:to-amber-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-amber-600/10 transition-all duration-300"
             >
               View My Work
               <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
             <motion.a
-whileHover={{ scale: 1.03, backgroundColor: "rgba(34, 211, 238, 0.1)" }}
-whileTap={{ scale: 0.98 }}
-href="/Sanyam's Resume.pdf"
-download
-className="flex items-center gap-2 border border-cyan-500/50 text-cyan-400 font-bold px-8 py-4 rounded-xl transition-all duration-300"
+              whileHover={{ scale: 1.03, backgroundColor: "rgba(244, 63, 94, 0.05)" }}
+              whileTap={{ scale: 0.98 }}
+              href="/Sanyam's Resume.pdf"
+              download
+              className="flex items-center gap-2 border border-amber-500/20 text-amber-500 font-bold px-8 py-4 rounded-xl transition-all duration-300"
+            >
+              Download CV <FaDownload className="text-sm" />
+            </motion.a>
+          </div>
 
->
-
-Download CV <FaDownload className="text-sm" />
-</motion.a>
-
+          {/* Mobile swipe hint — hidden on desktop where katana handles navigation */}
+          <div className="flex md:hidden items-center gap-2 text-zinc-600 text-xs animate-bounce mt-2">
+            <span>↑</span>
+            <span className="tracking-widest uppercase font-semibold">Swipe up to explore</span>
+            <span>↑</span>
           </div>
 
           {/* Stats Bar */}
-          <div className="grid grid-cols-3 gap-4 border-t border-slate-900/80 pt-8 mt-4">
+          <div className="grid grid-cols-3 gap-4 border-t border-zinc-900/60 pt-8 mt-4">
             {stats.map((stat, i) => (
               <div key={i} className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-extrabold text-white">
                   <CountUpComponent end={stat.value} duration={3} />
-                  <span className="text-cyan-400">{stat.suffix}</span>
+                  <span className="text-amber-500">{stat.suffix}</span>
                 </span>
-                <span className="text-slate-500 text-xs md:text-sm tracking-wide mt-1 uppercase font-semibold">
+                <span className="text-zinc-500 text-xs md:text-sm tracking-wide mt-1 uppercase font-semibold">
                   {stat.label}
                 </span>
               </div>
@@ -156,24 +161,24 @@ Download CV <FaDownload className="text-sm" />
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex justify-center items-center relative"
         >
-          {/* Orbital glowing ring */}
-          <div className="absolute w-[360px] h-[360px] md:w-[460px] md:h-[460px] border border-cyan-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
-          <div className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] border border-dashed border-slate-800 rounded-full animate-[spin_45s_linear_infinite_reverse]" />
+          {/* Orbital glowing ring - Red */}
+          <div className="absolute w-[360px] h-[360px] md:w-[460px] md:h-[460px] border border-amber-500/10 rounded-full animate-[spin_20s_linear_infinite]" />
+          <div className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] border border-dashed border-zinc-900 rounded-full animate-[spin_45s_linear_infinite_reverse]" />
 
-          {/* Decorative floating dots/icons */}
+          {/* Decorative floating profile */}
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="relative"
           >
-            {/* Glowing Backdrop behind image */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-indigo-500 rounded-full blur-3xl opacity-40 animate-pulse scale-90" />
+            {/* Glowing Red Backdrop behind image */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-amber-600 to-amber-600 rounded-full blur-3xl opacity-30 animate-pulse scale-90" />
 
             {/* Main Avatar Profile Image */}
             <img
               src="/images/WhatsApp Image 2026-06-13 at 10.30.19 PM.jpeg"
               alt="Sanyam Asopa"
-              className="relative w-72 h-72 md:w-85 md:h-85 rounded-full object-cover border-4 border-cyan-400 shadow-[0_0_50px_rgba(34,211,238,0.4)] z-10 transition-transform duration-500 hover:scale-105"
+              className="relative w-72 h-72 md:w-85 md:h-85 rounded-full object-cover border-4 border-amber-500/40 shadow-[0_0_50px_rgba(245,158,11,0.25)] z-10 transition-transform duration-500 hover:scale-105"
             />
           </motion.div>
         </motion.div>

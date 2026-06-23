@@ -1,146 +1,51 @@
-export const projectCategories = [
-  "All",
-  "AI Applications",
-  "IoT & Hardware",
-  "Java Spring Boot"
-];
+export const projectCategories = ["All", "AI & ML", "Robotics & IoT", "Web Apps"];
 
 export const projectsData = [
   {
-    title: "AI Trainer (V2) – No-Code AI Model Training Platform",
-    category: "AI Applications",
-
-    features: [
-      "Natural Language Training",
-      "Live Playground",
-      "Model Refinement"
-    ],
-
-    tech: [
-      "Python",
-      "FastAPI",
-      "Machine Learning",
-      "Scikit-Learn",
-      "SQLite",
-      "Celery",
-      "Librosa",
-      "Pillow"
-    ],
-
-    shortDesc:
-      "Train custom AI models using simple English prompts with live testing and model refinement.",
-
-    desc:
-      "Developed an autonomous AI training platform that allows users to create and train custom machine learning models using natural language instructions instead of complex coding workflows. The platform supports text, image, audio, and regression-based training pipelines. It features a live playground for real-time model testing, enabling users to instantly evaluate outputs and performance. Users can refine existing models through an intuitive interface by updating datasets, modifying configurations, and retraining models without rebuilding the entire workflow. The system simplifies AI development for non-technical users while providing flexibility for experimentation and optimization.",
-
-    architecture:
-      "User Prompt Interface ➔ AI Training Engine ➔ Model Generation ➔ Live Playground ➔ Model Refinement Dashboard",
-
-    challenges:
-      "Building a workflow that allows users to train and improve AI models through simple English instructions while maintaining an intuitive testing and iteration experience across multiple data types.",
-
+    title: "AI Model Trainer (V2)",
+    category: "AI & ML",
+    image: "",
+    tech: ["FastAPI", "Celery", "Scikit-Learn", "Librosa", "SQLite", "Python"],
+    shortDesc: "Autonomous ML platform that automatically scrapes data, labels it, and trains multi-modal AI models asynchronously.",
+    desc: "Built a production-grade multi-modal AI training workstation that allows users to describe an AI task in plain English and automatically trains a professional model. It features a Smart Intent Router using LLMs (GPT-4o) to automatically detect data modality and task requirements. Incorporates multi-modal training pipelines: Text (automated scraping, AI-labeling, and TF-IDF), Image (feature-extraction based grayscale classification), Audio (MFCC signature recognition via Librosa), and Numeric Regression (multi-file merging and Random Forest prediction). Real-time job progress tracking is handled asynchronously via Celery with a filesystem broker, and trained models can be immediately exported as .pkl assets.",
+    architecture: "Natural Language Prompt ➔ Intent Router (LLM) ➔ Celery Worker ➔ Scipy/Scikit-Learn ➔ SQL Database ➔ .pkl Export",
+    challenges: "Preventing blocking web request operations during intensive Scikit-learn training runs. Solved by implementing an asynchronous Celery task queue with SQL-based status tracking and a lightweight local filesystem broker.",
     codeLink: "https://github.com/sanyam47",
     liveLink: "#"
   },
-
   {
     title: "AI Lawyer Assistant",
-    category: "AI Applications",
-
-    features: [
-      "Legal Research",
-      "Document Analysis",
-      "AI Consultation"
-    ],
-
-    tech: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "AI"
-    ],
-
-    shortDesc:
-      "AI-powered legal assistant for legal queries, document understanding, and guidance.",
-
-    desc:
-      "Built an AI-powered legal assistant that helps users understand legal concepts, analyze legal information, and receive guidance through natural language interactions. The platform provides quick access to legal knowledge, document explanations, and simplified legal assistance through an interactive conversational interface.",
-
-    architecture:
-      "React Frontend ➔ Express API ➔ AI Processing Layer ➔ MongoDB",
-
-    challenges:
-      "Presenting complex legal information in a simplified and user-friendly manner while maintaining response relevance and clarity.",
-
+    category: "AI & ML",
+    image: "",
+    tech: ["Next.js", "Node.js", "Express", "MongoDB", "Ollama", "Mistral", "RAG"],
+    shortDesc: "Full-stack legal intelligence platform providing conversational guidance and document analysis using local ML RAG pipelines.",
+    desc: "Developed a secure AI-powered legal assistant capable of document analysis, OCR extraction, and semantic vector retrieval (Retrieval-Augmented Generation). The application reads uploaded PDFs and images, extracts raw text via OCR, chunks it, and generates embeddings using Ollama's 'nomic-embed-text' model. Embeddings are stored as vectors in MongoDB. User queries trigger a Cosine Similarity Search to retrieve top relevant context chunks, which are then injected into a local 'mistral' LLM to generate highly grounded, memory-aware, and summarized legal advice.",
+    architecture: "Legal PDF/Image ➔ OCR Extraction ➔ Chunks ➔ nomic-embed-text (Ollama) ➔ MongoDB Vector Store ➔ Cosine Similarity Search ➔ mistral LLM ➔ Grounded Response",
+    challenges: "Achieving accurate semantic searches without relying on commercial cloud APIs. Solved by designing a custom vector storage solution inside MongoDB and optimizing cosine similarity queries locally.",
     codeLink: "https://github.com/sanyam47",
     liveLink: "#"
   },
-
   {
-    title: "AI-Powered Seed Sowing Vehicle",
-    category: "IoT & Hardware",
-
-    features: [
-      "Bluetooth Control",
-      "Seed Automation",
-      "Sensor Integration"
-    ],
-
-    tech: [
-      "Arduino",
-      "Bluetooth",
-      "Sensors",
-      "AI",
-      "Embedded Systems"
-    ],
-
-    shortDesc:
-      "Autonomous and Bluetooth-controlled seed sowing vehicle for small-scale agriculture.",
-
-    desc:
-      "Designed and developed a compact seed sowing vehicle capable of autonomous and Bluetooth-controlled operation. The system integrates sensors, motors, and intelligent control logic to improve sowing efficiency. The project focuses on reducing manual effort while maintaining accurate seed placement for small agricultural fields.",
-
-    architecture:
-      "Mobile App ➔ Bluetooth Module ➔ Arduino Controller ➔ Motors & Sensors",
-
-    challenges:
-      "Achieving consistent seed placement and integrating multiple hardware components into a compact and reliable system.",
-
+    title: "AI Seed Sowing Car",
+    category: "Robotics & IoT",
+    image: "",
+    tech: ["Arduino Uno", "Bluetooth (HC-05)", "Motor Driver (L298N)", "Servos", "Embedded C++"],
+    shortDesc: "Autonomous agricultural robotic vehicle featuring smart pathing, obstacle detection, and Bluetooth controls.",
+    desc: "Designed and engineered an agricultural robotic prototype to automate seed-sowing processes on rough fields. It utilizes an Arduino Uno microcontroller connected to L298N motor drivers and a custom servo dispensing mechanism. Equipped with HC-05 Bluetooth modules for direct wireless manual override, and ultrasonic sensors to handle obstacle avoidance. The mechanical loader triggers servo-controlled dispensing gates to release seeds at regular intervals during movement.",
+    architecture: "Arduino Uno ➔ HC-05 Bluetooth ➔ L298N Motor Driver ➔ Obstacle Avoidance ➔ Servo Seed Gates",
+    challenges: "Maintaining accurate seed gate timing and distance on uneven soil. Solved by integrating rotary wheel encoders and dynamically adjusting the servo motor seed gate speed relative to real-time wheel velocity.",
     codeLink: "https://github.com/sanyam47",
     liveLink: "#"
   },
-
   {
-    title: "Student Assignment & Assessment Portal",
-    category: "Java Spring Boot",
-
-    features: [
-      "Online Assignments",
-      "Role-Based Access",
-      "Result Management"
-    ],
-
-    tech: [
-      "Java",
-      "Spring Boot",
-      "MySQL",
-      "Thymeleaf",
-      "Bootstrap"
-    ],
-
-    shortDesc:
-      "Online portal for assignments, tests, submissions, evaluation, and result management.",
-
-    desc:
-      "Developed a web-based academic management platform that allows administrators to create assignments and tests, students to submit work online, and teachers to evaluate submissions. The system includes role-based access control, result management, and a streamlined workflow for managing academic assessments.",
-
-    architecture:
-      "Spring Boot ➔ Spring Security ➔ Thymeleaf ➔ MySQL",
-
-    challenges:
-      "Implementing secure role-based access control and managing assignment submission workflows efficiently.",
-
+    title: "Agri Commerce",
+    category: "Web Apps",
+    image: "",
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "JWT", "Multer"],
+    shortDesc: "Full-stack direct farmer-to-buyer e-commerce marketplace enabling catalog listing and secure transactions.",
+    desc: "Built a dedicated full-stack agricultural e-commerce platform designed to remove middlemen and connect local farmers directly with consumers and wholesale buyers. Features user roles (Farmer vs. Buyer) with separate dashboards, product listings with image uploads (multer), shopping cart state persistence, JWT token authentication, order tracking, and order histories.",
+    architecture: "React.js Frontend ➔ Axios ➔ Express REST APIs ➔ Mongoose ➔ MongoDB Atlas",
+    challenges: "Handling multiple image uploads and maintaining role-based routes for Farmers and Buyers securely. Solved using Mongoose schemas with distinct User roles, middleware verification, and local file storage systems.",
     codeLink: "https://github.com/sanyam47",
     liveLink: "#"
   }

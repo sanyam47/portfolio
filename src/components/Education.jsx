@@ -1,40 +1,43 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGraduationCap, FaAward, FaCalendarAlt, FaUniversity } from "react-icons/fa";
+import { FaGraduationCap, FaCalendarAlt, FaUniversity, FaTrophy, FaMedal } from "react-icons/fa";
 
-function Education() {
+function Education({ isSlicingHalf = false }) {
   const academicData = [
-  {
-    degree: "Bachelor of Technology in Computer Science & Engineering",
-    institution: "Jodhpur Institute of Engineering & Technology (JIET)",
-    duration: "2024 - 2028",
-    score: "8.49 CGPA",
-    details: "Specialized in Artificial Intelligence, Full Stack Development, Internet of Things (IoT), and Software Engineering. Active participant in hackathons, technical competitions, and innovative project development.",
-  },
-];
+    {
+      degree: "B. Tech (Bachelor of Technology): Computer Science Engineering (CSE)",
+      institution: "Jodhpur Institute of Engineering And Technology (JIET)",
+      duration: "09/2024 - Present",
+      score: "Active Student",
+      details: "Focusing on AI-powered applications, software engineering, and database systems. Engaging in coding hackathons, technical models creation, and physical IoT deployments.",
+    },
+  ];
 
-  const certificationsData = [
-  {
-    title: "Web Application Development Intern",
-    issuer: "Anand Rathi",
-    date: "2026",
-  },
-  {
-    title: "Winner - IT Model Making Competition",
-    issuer: "JIET",
-    date: "2026",
-  },
-  {
-    title: "Selected for Offline Round - RECKON 7.0 Hackathon",
-    issuer: "RECKON 7.0",
-    date: "2026",
-  },
-  {
-    title: "Finalist - Sabka AI Hackathon",
-    issuer: "Sabka AI",
-    date: "2026",
-  },
-];
+  const accomplishmentsData = [
+    {
+      title: "Selected for Offline Round - RECKON 7.0 Hackathon",
+      detail: "Led the development team as Team Lead, designing real-time AI solutions under high-pressure parameters.",
+      icon: <FaTrophy className="text-yellow-500" />
+    },
+    {
+      title: "Finalist - Sabka AI Hackathon 2026",
+      detail: "Team Lead for our AI project submission, managing timelines, ML models integration, and presentation pitches.",
+      icon: <FaMedal className="text-amber-400" />
+    },
+    {
+      title: "Winner - IT Model Making Competition, JIET",
+      detail: "Awarded for designing and engineering a fully functional IT/Robotics model demonstration.",
+      icon: <FaTrophy className="text-yellow-500" />
+    },
+    {
+      title: "Rank 183 - Unstop Engineering Quiz",
+      detail: "Achieved a national-level high ranking among thousands of engineering applicants in logical coding assessments.",
+      icon: <FaMedal className="text-amber-400" />
+    }
+  ];
+
+
+
   const containerVariants = {
     hidden: {},
     visible: {
@@ -56,35 +59,35 @@ function Education() {
   return (
     <section
       id="education"
-      className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative bg-slate-950"
+      className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative bg-[#0c0a09]"
     >
       {/* Background Glow */}
-      <div className="absolute right-1/4 bottom-1/4 w-80 h-80 bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute right-1/4 bottom-1/4 w-80 h-80 bg-amber-600/3 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header */}
       <div className="text-center mb-20 space-y-4">
-        <div className="text-cyan-400 font-bold uppercase tracking-wider text-sm">
+        <div className="text-amber-500 font-bold uppercase tracking-wider text-sm">
           / Learning &amp; Credentials
         </div>
         <h2 className="text-4xl md:text-5xl font-black text-white">
-          Education &amp; Certifications
+          Education &amp; Accomplishments
         </h2>
-        <p className="text-slate-400 max-w-2xl mx-auto">
-          My academic foundation and professional technical certifications that back my knowledge.
+        <p className="text-zinc-400 max-w-2xl mx-auto">
+          My academic foundation, hackathon achievements, and technical credentials.
         </p>
       </div>
 
       <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        initial={isSlicingHalf ? "visible" : "hidden"}
+        whileInView={isSlicingHalf ? "visible" : "visible"}
+        viewport={{ once: false, margin: "-100px" }}
         variants={containerVariants}
         className="grid lg:grid-cols-12 gap-12 items-start"
       >
         {/* Left Column: Academic Qualifications */}
         <div className="lg:col-span-7 space-y-8">
           <h3 className="text-2xl font-bold text-white flex items-center gap-3">
-            <FaGraduationCap className="text-cyan-400" /> Academic Qualifications
+            <FaGraduationCap className="text-amber-500" /> Academic Qualifications
           </h3>
 
           <div className="space-y-6">
@@ -92,28 +95,28 @@ function Education() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                whileHover={{ y: -4, borderColor: "rgba(34, 211, 238, 0.3)" }}
-                className="bg-slate-900/40 backdrop-blur-xl border border-slate-900 rounded-3xl p-8 space-y-4 shadow-md transition-all duration-300"
+                whileHover={{ y: -4, borderColor: "rgba(244, 63, 94, 0.3)" }}
+                className="bg-[#141210]/45 backdrop-blur-xl border border-zinc-900/60 rounded-3xl p-8 space-y-4 shadow-md transition-all duration-300"
               >
                 <div className="flex flex-wrap justify-between items-start gap-4">
                   <div className="space-y-1">
                     <h4 className="text-lg font-bold text-white leading-tight">
                       {edu.degree}
                     </h4>
-                    <p className="text-slate-400 text-sm font-semibold flex items-center gap-2">
-                      <FaUniversity className="text-cyan-500/80" /> {edu.institution}
+                    <p className="text-zinc-400 text-sm font-semibold flex items-center gap-2">
+                      <FaUniversity className="text-amber-500/80" /> {edu.institution}
                     </p>
                   </div>
                   <div className="flex flex-col items-end gap-1.5">
-                    <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                    <span className="text-xs font-semibold text-zinc-500 flex items-center gap-1">
                       <FaCalendarAlt /> {edu.duration}
                     </span>
-                    <span className="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-0.5 rounded-full border border-cyan-500/20">
+                    <span className="bg-amber-500/10 text-amber-455 text-xs font-bold px-3 py-0.5 rounded-full border border-amber-500/20">
                       {edu.score}
                     </span>
                   </div>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-zinc-400 text-sm leading-relaxed">
                   {edu.details}
                 </p>
               </motion.div>
@@ -121,35 +124,39 @@ function Education() {
           </div>
         </div>
 
-        {/* Right Column: Certifications */}
+        {/* Right Column: Achievements & Certifications */}
         <div className="lg:col-span-5 space-y-8">
-          <h3 className="text-2xl font-bold text-white flex items-center gap-3">
-            <FaAward className="text-cyan-400" /> Technical Certifications
-          </h3>
+          {/* Accomplishments Section */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+              <FaTrophy className="text-amber-500" /> Key Accomplishments
+            </h3>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {certificationsData.map((cert, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02, borderColor: "rgba(34, 211, 238, 0.3)" }}
-                className="bg-slate-900/40 backdrop-blur-xl border border-slate-900 rounded-2xl p-6 flex items-start gap-4 shadow-sm transition-all duration-300"
-              >
-                <div className="bg-slate-950 border border-slate-800 p-3 rounded-xl text-cyan-400 flex-shrink-0">
-                  <FaAward />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="font-bold text-white text-sm md:text-base leading-tight">
-                    {cert.title}
-                  </h4>
-                  <div className="flex justify-between items-center text-xs text-slate-500 font-semibold gap-4">
-                    <span>{cert.issuer}</span>
-                    <span>{cert.date}</span>
+            <div className="grid gap-4">
+              {accomplishmentsData.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02, borderColor: "rgba(244, 63, 94, 0.3)" }}
+                  className="bg-[#141210]/45 backdrop-blur-xl border border-zinc-900/60 rounded-2xl p-5 flex items-start gap-4 shadow-sm transition-all duration-300"
+                >
+                  <div className="bg-zinc-950 border border-zinc-800 p-3 rounded-xl flex-shrink-0 text-lg">
+                    {item.icon}
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-white text-sm md:text-base leading-tight">
+                      {item.title}
+                    </h4>
+                    <p className="text-zinc-450 text-xs leading-relaxed">
+                      {item.detail}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+
         </div>
       </motion.div>
     </section>

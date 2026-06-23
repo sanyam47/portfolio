@@ -33,30 +33,30 @@ function Footer() {
   const strokeDashoffset = circumference - (scrollProgress / 100) * circumference;
 
   return (
-    <footer className="border-t border-slate-900 bg-slate-950 py-12 px-6">
+    <footer className="border-t border-zinc-900/60 bg-[#0c0a09] py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Logo / Branding */}
         <div className="flex items-center gap-1">
           <span className="text-xl font-black text-white tracking-widest">
-            SANYAM<span className="text-cyan-400">.</span>
+            SANYAM<span className="text-amber-500">.</span>
           </span>
         </div>
 
         {/* Quick links */}
         <div className="flex flex-wrap justify-center gap-6 text-sm">
-          <a href="#about" className="text-slate-400 hover:text-cyan-400 transition-colors">
+          <a href="#about" className="text-zinc-450 hover:text-amber-500 transition-colors">
             About
           </a>
-          <a href="#skills" className="text-slate-400 hover:text-cyan-400 transition-colors">
+          <a href="#skills" className="text-zinc-455 hover:text-amber-500 transition-colors">
             Skills
           </a>
-          <a href="#projects" className="text-slate-400 hover:text-cyan-400 transition-colors">
+          <a href="#projects" className="text-zinc-455 hover:text-amber-500 transition-colors">
             Projects
           </a>
-          <a href="#experience" className="text-slate-400 hover:text-cyan-400 transition-colors">
+          <a href="#experience" className="text-zinc-455 hover:text-amber-500 transition-colors">
             Experience
           </a>
-          <a href="#contact" className="text-slate-400 hover:text-cyan-400 transition-colors">
+          <a href="#contact" className="text-zinc-455 hover:text-amber-500 transition-colors">
             Contact
           </a>
         </div>
@@ -68,7 +68,7 @@ function Footer() {
               href="https://github.com/sanyam47"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-cyan-400 transition-colors"
+              className="text-zinc-500 hover:text-amber-500 transition-colors"
             >
               <FaGithub />
             </a>
@@ -76,12 +76,12 @@ function Footer() {
               href="https://www.linkedin.com/in/sanyam-asopa-7b654731b"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-cyan-400 transition-colors"
+              className="text-zinc-500 hover:text-amber-500 transition-colors"
             >
               <FaLinkedin />
             </a>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-zinc-550">
             &copy; {new Date().getFullYear()} Sanyam Asopa. All rights reserved.
           </p>
         </div>
@@ -95,7 +95,7 @@ function Footer() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-slate-900 border border-slate-800 text-cyan-400 shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer focus:outline-none hover:text-white group"
+            className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-[#141210]/90 border border-zinc-800/80 text-amber-500 shadow-[0_0_20px_rgba(0,0,0,0.6)] cursor-pointer focus:outline-none hover:text-white group"
           >
             {/* SVG Circle indicator */}
             <svg className="absolute w-full h-full transform -rotate-90">
@@ -103,7 +103,7 @@ function Footer() {
                 cx="24"
                 cy="24"
                 r={radius}
-                className="stroke-slate-850"
+                className="stroke-zinc-850"
                 strokeWidth="2.5"
                 fill="transparent"
               />
@@ -111,7 +111,7 @@ function Footer() {
                 cx="24"
                 cy="24"
                 r={radius}
-                className="stroke-cyan-400 transition-all duration-100"
+                className="stroke-amber-500 transition-all duration-100"
                 strokeWidth="2.5"
                 fill="transparent"
                 strokeDasharray={circumference}

@@ -90,7 +90,7 @@ export function calculateSplitPolygons(x1, y1, x2, y2, width, height, offsets) {
   const vx = sP2.x - sP1.x;
   const vy = sP2.y - sP1.y;
   const len = Math.sqrt(vx * vx + vy * vy);
-  
+
   const ux = vx / len;
   const uy = vy / len;
   const nx = -uy; // Perpendicular normal
@@ -101,10 +101,10 @@ export function calculateSplitPolygons(x1, y1, x2, y2, width, height, offsets) {
     const baseX = sP1.x + t * vx;
     const baseY = sP1.y + t * vy;
     const offset = offsets[i];
-    
+
     const jx = baseX + offset * nx;
     const jy = baseY + offset * ny;
-    
+
     // Convert to percentages for CSS clip-path
     const jxPct = (jx / width) * 100;
     const jyPct = (jy / height) * 100;
@@ -458,7 +458,7 @@ function Home() {
           </div>
         );
       default:
-        return <Hero />;
+        return <Hero onPageChange={setActivePage} />;
     }
   };
 
@@ -475,7 +475,7 @@ function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }} // Premium cubic-bezier transition
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="w-full h-full overflow-y-auto custom-scrollbar relative"
           >
             {renderBackgroundElements(activePage)}
@@ -488,7 +488,7 @@ function Home() {
         // Active page tearing animation layout
         <div className="relative w-full h-full overflow-hidden">
           {/* Background target page loading - fades in smoothly */}
-          <div 
+          <div
             style={{ opacity: tearProgress < 0.2 ? 0 : (tearProgress - 0.2) / 0.8 }}
             className="absolute inset-0 w-full h-full z-10"
           >
@@ -513,7 +513,7 @@ function Home() {
               <div className="relative z-10">
                 {renderPageContent(slicingPage, true)}
               </div>
-              {/* Glowing Crimson cut edge overlay */}
+              {/* Glowing Amber cut edge overlay */}
               {splitData.jaggedPoints && (
                 <svg className="absolute inset-0 w-full h-full pointer-events-none z-50" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <path
@@ -546,7 +546,7 @@ function Home() {
               <div className="relative z-10">
                 {renderPageContent(slicingPage, true)}
               </div>
-              {/* Glowing Crimson cut edge overlay */}
+              {/* Glowing Amber cut edge overlay */}
               {splitData.jaggedPoints && (
                 <svg className="absolute inset-0 w-full h-full pointer-events-none z-50" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <path

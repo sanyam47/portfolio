@@ -2,14 +2,26 @@ export const projectCategories = ["All", "AI & ML", "Robotics & IoT", "Web Apps"
 
 export const projectsData = [
   {
+    title: "Ashtavadhani — Agentic Video Editor",
+    category: "AI & ML",
+    image: "",
+    tech: ["FastAPI", "Python", "Google Gemini", "MoviePy", "OpenCV", "Whisper", "PyTorch", "Qualcomm AI Hub"],
+    shortDesc: "Multi-agent AI video synthesis engine that orchestrates 8 specialized AI agents to edit, beat-sync, and render production-grade videos.",
+    desc: "Ashtavadhani (inspired by the ancient Indian art of performing eight cognitive tasks simultaneously) is a multi-agent collaborative video synthesis engine. It orchestrates a council of 8 specialized AI agents — Manager, Vision, Reference, Music, SFX, Transitions, Motion Graphics, and Caption — each handling a distinct editing dimension. In Template Mode it uses BiRefNet for neural background matting, LaMa for inpainting background reconstruction, a Smart Anatomical Aligner for eye-locked subject placement, and a 3D Depth Compositor for cinematic text rendering. Supports Qualcomm Snapdragon NPU acceleration via Qualcomm AI Hub with auto-fallback to CUDA or CPU. Real-time progress streams via Server-Sent Events (SSE).",
+    architecture: "Raw Footage + Audio ➔ 8 AI Agent Council (Gemini) ➔ BiRefNet Matting ➔ LaMa Inpainting ➔ Anatomical Aligner ➔ Beat-Sync Audio ➔ 3D Compositor ➔ MP4 Export",
+    challenges: "Coordinating 8 independent AI agents without race conditions while streaming real-time progress to a UI. Solved using JSON-based agentic plans streamed via SSE with a fail-safe NPU→CUDA→CPU fallback pipeline.",
+    codeLink: "https://github.com/sanyam47",
+    liveLink: "#"
+  },
+  {
     title: "AI Model Trainer (V2)",
     category: "AI & ML",
     image: "",
-    tech: ["FastAPI", "Celery", "Scikit-Learn", "Librosa", "SQLite", "Python"],
-    shortDesc: "Autonomous ML platform that automatically scrapes data, labels it, and trains multi-modal AI models asynchronously.",
-    desc: "Built a production-grade multi-modal AI training workstation that allows users to describe an AI task in plain English and automatically trains a professional model. It features a Smart Intent Router using LLMs (GPT-4o) to automatically detect data modality and task requirements. Incorporates multi-modal training pipelines: Text (automated scraping, AI-labeling, and TF-IDF), Image (feature-extraction based grayscale classification), Audio (MFCC signature recognition via Librosa), and Numeric Regression (multi-file merging and Random Forest prediction). Real-time job progress tracking is handled asynchronously via Celery with a filesystem broker, and trained models can be immediately exported as .pkl assets.",
-    architecture: "Natural Language Prompt ➔ Intent Router (LLM) ➔ Celery Worker ➔ Scipy/Scikit-Learn ➔ SQL Database ➔ .pkl Export",
-    challenges: "Preventing blocking web request operations during intensive Scikit-learn training runs. Solved by implementing an asynchronous Celery task queue with SQL-based status tracking and a lightweight local filesystem broker.",
+    tech: ["FastAPI", "Celery", "Scikit-Learn", "GPT-4o", "Librosa", "SQLite", "Docker", "Python"],
+    shortDesc: "Production-grade autonomous ML platform — describe a task in plain English and get a trained, exportable AI model.",
+    desc: "A production-ready multi-modal AI training workstation that lets anyone describe an AI task in plain English and automatically trains a professional model. Features a Smart Intent Router (GPT-4o) to detect data modality and task requirements. Supports four training pipelines: Text (automated scraping + AI-labeling + TF-IDF), Image (grayscale feature-extraction classification), Audio (MFCC signature recognition via Librosa), and Numeric Regression (multi-file CSV merging + Random Forest). Supports manual dataset uploads, real-time Celery job tracking, cloud deployment via Render, and instant .pkl model export. Includes stress testing, live test suites, and Docker support.",
+    architecture: "Natural Language Prompt ➔ Intent Router (GPT-4o) ➔ Celery Worker ➔ Scikit-Learn Pipeline ➔ SQLite Job Tracker ➔ .pkl Export",
+    challenges: "Preventing blocking operations during intensive training runs across 4 different data modalities. Solved with an async Celery task queue using a filesystem broker and SQL-based real-time status polling.",
     codeLink: "https://github.com/sanyam47",
     liveLink: "#"
   },

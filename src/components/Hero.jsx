@@ -84,13 +84,13 @@ function Hero({ onPageChange }) {
             <span className="text-amber-500 font-extrabold border-b-2 border-amber-500 pb-1">
               <TypeAnimation
                 sequence={[
-                  "scalable web apps",
+                  "autonomous AI agents",
+                  2000,
+                  "local LLM systems",
+                  2000,
+                  "scalable web backends",
                   2000,
                   "smart IoT hardware",
-                  2000,
-                  "AI systems integration",
-                  2000,
-                  "robust server backends",
                   2000,
                 ]}
                 wrapper="span"

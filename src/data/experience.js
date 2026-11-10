@@ -1,24 +1,17 @@
 export const experienceData = [
   {
-    role: "Web Application Development Intern",
-    company: "Anand Rathi",
-    duration: "2026",
-    type: "Internship",
-    desc: "Worked as a Web Application Development Intern at Anand Rathi, contributing to the development and maintenance of web-based applications. Gained hands-on experience building production-ready features in a professional financial services environment."
-  },
-  {
-    role: "Lead ML System Architect (AI Trainer V2)",
-    company: "Personal Project",
+    role: "Creator & Lead Systems Engineer",
+    company: "Unleash-Agent (formerly AI Trainer)",
     duration: "03/2026 - Present",
-    type: "Machine Learning",
-    desc: "Built an autonomous AI platform to train machine learning models using natural language prompts or datasets. Engineered multi-modal training pipelines for text, image, audio, and regression tasks. Utilized FastAPI and Celery with a local broker for asynchronous processing and real-time job tracking. Implemented model export system and scalable modular architecture."
+    type: "AI Systems & Autonomous Agents",
+    desc: "Architected and built Unleash-Agent, an open-source, local-first autonomous software engineering and multi-modal training platform. Engineered an on-device execution engine with 0 cloud telemetry, 7-layer headless Chromium verification (Playwright), AES-256-GCM authenticated credential vault, persistent privacy-scoped memory, and async task execution. Featured in open-source Corpus Hub for worked agent reference architectures."
   },
   {
-    role: "AI Legal Intelligence Developer (YourLawyer)",
-    company: "Personal Project",
-    duration: "10/2025 - 03/2026",
-    type: "AI & Full Stack",
-    desc: "Built a local AI-powered platform for legal query handling and case suggestions. Designed backend REST APIs and structured data processing systems. Integrated an Ollama-based RAG pipeline utilizing vector similarity search on MongoDB to answer legal queries contextually and securely."
+    role: "Web Application Development Intern",
+    company: "Anand Rathi IT Private Limited",
+    duration: "05/2026 - 06/2026",
+    type: "Internship",
+    desc: "Worked as a Web Application Development Intern at Anand Rathi IT Pvt. Ltd., contributing to the development, testing, and maintenance of Java web-based financial applications. Gained practical exposure to enterprise industry practices and production web architectures."
   },
   {
     role: "Robotics Developer (AI Seed Sowing Car)",

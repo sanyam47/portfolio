@@ -20,18 +20,22 @@ export const skillCategories = [
     ]
   },
   {
-    title: "AI / ML & DSP",
+    title: "AI / ML & Agents",
     skills: [
-      { name: "Scikit-learn", level: 80 },
-      { name: "NLP Basics", level: 78 },
-      { name: "Librosa (Audio)", level: 75 }
+      { name: "Autonomous Agents", level: 92 },
+      { name: "Local Ollama LLMs", level: 90 },
+      { name: "RAG & Vector Search", level: 86 },
+      { name: "Playwright Automation", level: 88 },
+      { name: "Scikit-learn", level: 82 }
     ]
   },
   {
-    title: "Tools & Architectures",
+    title: "Tools & Security",
     skills: [
-      { name: "Git & GitHub", level: 90 },
-      { name: "REST APIs", level: 90 }
+      { name: "Git & GitHub", level: 92 },
+      { name: "AES-256 Vault / AppSec", level: 86 },
+      { name: "REST APIs & WebSockets", level: 90 },
+      { name: "Docker & Linux", level: 80 }
     ]
   }
 ];
